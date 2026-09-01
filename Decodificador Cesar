@@ -5,15 +5,15 @@
 
 void cesar(char *texto,int llave);
 int main(){
-	int Llave=3;
-	char Texto[10000];
+	int llave=3;
+	char texto[10000];
 	
-	while(Llave!=0){
-		printf("Texto a decodificar: "); scanf(" %[^\n]",Texto);
-		printf("Llave: "); scanf("%d",&Llave);
+	while(llave!=0){
+		printf("Texto a decodificar: "); scanf(" %[^\n]",texto);
+		printf("llave: "); scanf("%d",&llave);
 
     printf("\nTexto decodificado:\n");
-		cesar(Texto,Llave);
+		cesar(texto,llave);
 		printf("\n");
 	}
 }
