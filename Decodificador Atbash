@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+void atbash(char *texto);
+int main(){
+	char Texto[10000];
+	
+	do{
+		printf("Texto a decodificar: "); scanf(" %[^\n]",Texto);		
+		
+		printf("\nTexto decodificado:\n");
+		atbash(Texto);
+		printf("\n");
+	}while(strcmp(Texto,"FIN"));
+}
+
+void atbash(char *texto){
+	int i;
+	char base;
+	
+	for (i=0;i<strlen(texto);i++){
+		if (isalpha(texto[i])){
+			base=islower(texto[i])?'a':'A';
+			printf("%c",2*base+25-texto[i]);
+		}else{
+			printf("%c",texto[i]);
+		}
+	}
+	printf("\n");
+}
