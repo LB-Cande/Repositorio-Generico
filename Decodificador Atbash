@@ -5,15 +5,15 @@
 
 void atbash(char *texto);
 int main(){
-	char Texto[10000];
+	char texto[10000];
 	
 	do{
-		printf("Texto a decodificar: "); scanf(" %[^\n]",Texto);		
+		printf("Texto a decodificar: "); scanf(" %[^\n]",texto);		
 		
 		printf("\nTexto decodificado:\n");
-		atbash(Texto);
+		atbash(texto);
 		printf("\n");
-	}while(strcmp(Texto,"FIN"));
+	}while(strcmp(texto,"FIN"));
 }
 
 void atbash(char *texto){
