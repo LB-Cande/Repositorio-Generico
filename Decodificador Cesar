@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+void cesar(char *texto,int llave);
+int main(){
+	int Llave=3;
+	char Texto[10000];
+	
+	while(Llave!=0){
+		printf("Texto a decodificar: "); scanf(" %[^\n]",Texto);
+		printf("Llave: "); scanf("%d",&Llave);
+
+    printf("\nTexto decodificado:\n");
+		cesar(Texto,Llave);
+		printf("\n");
+	}
+}
+void cesar(char *texto,int llave){
+	int i;
+	char base;
+	
+	for (i=0;i<strlen(texto);i++){
+		if (isalpha(texto[i])){
+			base=islower(texto[i])?'a':'A';
+			printf("%c",(llave+texto[i]-base)%26+base);
+		}else{
+			printf("%c",texto[i]);
+		}
+	}
+	printf("\n");
+}
