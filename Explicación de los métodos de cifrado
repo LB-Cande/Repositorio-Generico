@@ -1,0 +1,44 @@
+Explicación del Cifrado Cesar:
+  El cifrado Cesar consiste en sustituir todas las letras de un texto con la letra que esté a una distancia fija en frente o atrás de esta en el abecedario, regresando desde la primera si se pasa de la z. Esta distancia se representa con la llave. 
+  Por ejemplo, con un desplazamiento de 3 lugares hacia adelante, cada letra de "Hola Mundo" se reemplazaría de la siguiente manera:
+
+    H>I>J>K
+    o>p>q>r
+    l>m>n>o
+    a>b>c>d
+
+    M>N>O>P
+    u>v>w>x
+    n>o>p>q
+    d>e>f>g
+    o>p>q>r
+  Quedando la frase como "Krod Pxqgr".
+
+  Este cálculo se realiza en la línea 27 del código:
+    (llave+texto[i]-base)%26+base
+  donde a cada letra ("texto[i]") del texto se le resta la "base" (que es la letra "a" o "A") para obtener su posición en el abecedario, y se le suma la llave para generar el desplazamiento, luego se le aplica el módulo 26 para que las letras que se pasen de la Z vuelan desde la A, y por último se le suma la base para que vuelva a ser el dato de una letra.
+
+
+
+Explicación del Cifrado Atbash:
+  El cifrado Abash consiste en sustituir todas las letras de un texto con la letra que esté en el lado opuesto del abecedario, es decir, la primera letra (la a) se intercambia por la última (la z), la segunda letra con la penúltima, y así sucesivamente.
+  Por ejemplo, cada letra de "Hola Mundo" se reemplazaría siguiendo el siguiente cuadro:
+
+    A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
+    Z|Y|X|W|V|U|T|S|R|Q|P|O|N|M|L|K|J|I|H|G|F|E|D|C|B|A
+
+    H>S
+    o>l
+    l>o
+    a>z
+
+    M>N
+    u>f
+    n>m
+    d>w
+    o>l
+  Quedando la frase como "Sloz Nfmwl".
+
+  Este cálculo se realiza en la línea 26 del código:
+    2*base+25-texto[i]
+  donde a la "base" (que es la letra "a" o "A") se le suma 25 para que pase a ser una "z" o "Z" y se le resta cada letra ("texto[i]") del texto para obtener la posición en el abecedario de su "letra opuesta", y se le vueve a sumar la base para que vuelva a ser el dato de una letra (lo cual se simplifica en "2*base").
